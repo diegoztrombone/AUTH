@@ -13,6 +13,7 @@ const signupController = async (email, password, done) => {
 const loginController = async (email, password, done) => {
   try {
     const user = await UserModel.findOne({ email });
+    
 
     if (!user) {
       return done(null, false, { message: "User not found" });

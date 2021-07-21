@@ -15,7 +15,7 @@ const UserSchema = new Schema({
   },
   githubID: {
     type: String,
-    unique: true,
+    
   },
   role: {
     type: String,
@@ -42,6 +42,6 @@ UserSchema.methods.isValidPassword = async function (password) {
   return compare;
 };
 
-const UserModel = mongoose.model("User", UserSchema);
+const UserModel = mongoose.model("mongousers", UserSchema);
 
 module.exports = UserModel;

@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv").config();
 
 const loginController = (req, res, next, user, err) => {
   if (err || !user) {
@@ -12,7 +13,7 @@ const loginController = (req, res, next, user, err) => {
 
     const body = { _id: user._id, email: user.email };
     const token = jwt.sign({ user: body }, process.env.SECRET_TOKEN, {
-      expiresIn: "1800s",
+      expiresIn: "30000s",
     });
 
     return res.json({ token });
